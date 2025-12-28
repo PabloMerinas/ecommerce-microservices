@@ -49,6 +49,16 @@
             "projectName": "users-service",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BatchServiceApplication<batch-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ecommerce.batch_service.BatchServiceApplication",
+            "projectName": "batch-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
