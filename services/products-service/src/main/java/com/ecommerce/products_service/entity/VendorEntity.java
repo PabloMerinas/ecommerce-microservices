@@ -1,14 +1,18 @@
 package com.ecommerce.products_service.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,4 +43,12 @@ public class VendorEntity {
 
   @Column
   private String direccion;
+
+  @OneToMany(
+    mappedBy = "vendor",
+    cascade = CascadeType.ALL,
+    orphanRemoval = true
+  )
+  @Builder.Default
+  private Set<ProductEntity> products = new HashSet<>();
 }
